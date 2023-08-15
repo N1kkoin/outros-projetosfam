@@ -10,14 +10,14 @@
 
         body {
             font-family: 'Source Sans 3', sans-serif;
-            margin: 0;
+            margin: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #f0f0f0;
         }
 
-        section{
+        sectionn {
             max-width: 960px;
             margin: 15px;
         }
@@ -27,11 +27,12 @@
             background-color: #ffffff;
             border-radius: 10px;
             padding: 50px;
-            margin: 0 auto; 
+            margin: 0 auto;
         }
 
         .logo img {
-            max-width: 100%; /* Imagem responsiva */
+            max-width: 100%;
+            /* Imagem responsiva */
         }
 
         .content {
@@ -58,26 +59,24 @@
             margin: 20px;
             font-weight: 900;
         }
-
-
     </style>
 </head>
 
 <body>
-    <section>
-    <div class="container">
-        <div class="logo">
-            <img src="https://i.postimg.cc/k4tNkC17/faculdade-aberta-logos.png">
-        </div>
-        <div class="content">
-            <div class="text">
-                <div id="countdown">Calculando...</div>
-                <p class="dia">De 23 a 28 de outubro</p>
-                <p><i class="fas fa-map-marker-alt"></i>Na FAM – Faculdade de Americana</p>
+    <section class="sectionn">
+        <div class="container">
+            <div class="logo">
+                <img src="https://i.postimg.cc/k4tNkC17/faculdade-aberta-logos.png">
+            </div>
+            <div class="content">
+                <div class="text">
+                    <div id="countdown">Calculando...</div>
+                    <p class="dia">De 23 a 28 de outubro</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Na FAM – Faculdade de Americana</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
     <script>
         // Data alvo (23 de outubro de 2023)
         const targetDate = new Date('2023-10-23T00:00:00');
