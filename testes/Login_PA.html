@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .input-container {
+            position: relative;
+            margin: 25px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            pointer-events: none;
+            transition: 0.2s ease all;
+            color: #999;
+        }
+
+        input:focus~label,
+        input:valid~label {
+            top: -8px;
+            left: 6px;
+            font-size: 12px;
+            color: #0056b3;
+            background-color: white;
+            padding: 0 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="input-container">
+            <input type="text" id="username" required>
+            <label for="username">Usuário</label>
+        </div>
+        <div class="input-container">
+            <input type="password" id="password" required>
+            <label for="password">Senha</label>
+            <span class="toggle-password" id="togglePassword">
+              <i class="far fa-eye"></i>
+            </span>
+          </div>
+        <button id="login-btn">Entrar</button>
+    </div>
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function () {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Aqui você pode adicionar a lógica de validação e autenticação no futuro
+            // por meio de uma chamada AJAX para o backend.
+            // Por enquanto, vamos apenas exibir uma mensagem de sucesso/falha.
+            if (username === 'usuario' && password === 'senha') {
+                alert('Login bem-sucedido!');
+            } else {
+                alert('Usuário ou senha incorretos. Por favor, tente novamente.');
+            }
+        });
+
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('password');
+            const toggleIcon = document.querySelector('.toggle-password i');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('far', 'fa-eye');
+                toggleIcon.classList.add('far', 'fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('far', 'fa-eye-slash');
+                toggleIcon.classList.add('far', 'fa-eye');
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
