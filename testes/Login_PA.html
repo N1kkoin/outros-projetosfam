@@ -37,8 +37,61 @@
             /* Transições */
             --transition-speed: 0.3s;
 
+            --bg-dark: #121212;
+            --text-dark: #ddd;
+            --input-bg-dark: #1d1d1d;
+            --btn-bg-dark: #242424;
+
+
         }
-        
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .login-container {
+            background-color: var(--input-bg-dark);
+        }
+
+        body.dark-mode input {
+            background-color: var(--input-bg-dark);
+            color: var(--text-dark);
+            border-bottom-color: var(--text-dark);
+        }
+
+        body.dark-mode label {
+            color: var(--text-dark);
+        }
+
+        body.dark-mode button {
+            background-color: var(--btn-bg-dark);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode button:hover {
+            box-shadow: inset 0 0 0 2px var(--text-dark);
+        }
+
+        body.dark-mode .modal-content{
+            background-color: var(--btn-bg-dark);
+        }
+
+        body.dark-mode input:focus~label,
+        body.dark-mode input:valid~label {
+            top: -12px;
+            left: 0;
+            font-size: 14px;
+            color: #f9e20f;
+            padding: 0;
+        }
+
+        body.dark-mode input:focus {
+            outline: none;
+            border-color: #f9e20f;
+        }
+
+
         body {
             font-family: 'Source Sans 3', sans-serif;
             margin: 0;
@@ -130,85 +183,128 @@
             cursor: pointer;
         }
 
-        .theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-}
+        
 
-.theme-checkbox {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
+        #toggleTheme {
+            width: 100%;
+            margin: 10px auto;
+            flex: 1;
+        }
 
-.theme-switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    cursor: pointer;
-}
+        #showTutorialBtn {
+            width: 100%;
+            margin: 10px auto;
+        }
 
-.slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px;
-}
+        .botoes{
+            display: flex;
+            margin: 10px;
+            gap: 20px;
+        }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
-}
+        /* Estilo para a modal (pop-up) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
 
-.theme-checkbox:checked + .theme-switch .slider {
-    background-color: #1b3556;
-}
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 5px;
 
-.theme-checkbox:checked + .theme-switch .slider:before {
-    transform: translateX(26px);
-}
+        }
 
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
+    <div class="tudo">
+        <div class="login-container">
+            <h2>Login</h2>
+            <div class="input-container">
+                <input type="text" id="username" required>
+                <label for="username">Usuário</label>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" required>
+                <label for="password">Senha</label>
+                <span class="toggle-password" id="togglePassword">
+                    <i class="fa-solid fa-eye"></i>
+                </span>
+            </div>
+            <button id="login-btn">Entrar</button>
+        </div>
+        <div class="botoes">
+            <button id="showTutorialBtn">Tutorial</button>
+            <button id="toggleTheme"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
 
-    <div class="theme-switch-wrapper">
-        <input type="checkbox" id="themeToggle" class="theme-checkbox" />
-        <label class="theme-switch" for="themeToggle">
-            <div class="slider round"></div>
-        </label>
-    </div>
-    
-    <div class="login-container">
-        <h2>Login</h2>
-        <div class="input-container">
-            <input type="text" id="username" required>
-            <label for="username">Usuário</label>
+    <div id="tutorialModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close">&times;</span>
+            <h2>Tutorial</h2>
+            <p>Aqui está o conteúdo do seu tutorial...</p>
+            <!-- Você pode adicionar imagens, listas, vídeos ou qualquer outro conteúdo necessário para o seu tutorial -->
         </div>
-        <div class="input-container">
-            <input type="password" id="password" required>
-            <label for="password">Senha</label>
-            <span class="toggle-password" id="togglePassword">
-                <i class="far fa-eye"></i>
-            </span>
-        </div>
-        <button id="login-btn">Entrar</button>
     </div>
+
     <script>
+        // Pega os elementos da página
+        const modal = document.getElementById('tutorialModal');
+        const btn = document.getElementById('showTutorialBtn');
+        const span = document.getElementById('closeModalBtn');
+
+        // Quando o usuário clica no botão, abre a modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // Quando o usuário clica no <span> (x), fecha a modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Quando o usuário clica fora da modal, fecha ela
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById('toggleTheme').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                this.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                this.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        });
+
         document.getElementById('login-btn').addEventListener('click', function () {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
@@ -229,12 +325,12 @@
 
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
-                toggleIcon.classList.remove('far', 'fa-eye');
-                toggleIcon.classList.add('far', 'fa-eye-slash');
+                toggleIcon.classList.remove('fa-solid', 'fa-eye');
+                toggleIcon.classList.add('fa-solid', 'fa-eye-slash');
             } else {
                 passwordField.type = 'password';
-                toggleIcon.classList.remove('far', 'fa-eye-slash');
-                toggleIcon.classList.add('far', 'fa-eye');
+                toggleIcon.classList.remove('fa-solid', 'fa-eye-slash');
+                toggleIcon.classList.add('fa-solid', 'fa-eye');
             }
         });
 
