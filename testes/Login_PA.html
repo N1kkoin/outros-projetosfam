@@ -12,6 +12,7 @@
 
         :root {
             /* Cores */
+            --rosa: #e53888;
             --azul-principal: #1b3556;
             --azul-claro: #45b7e5;
             --amarelo: #f9e20f;
@@ -73,7 +74,7 @@
             box-shadow: inset 0 0 0 2px var(--text-dark);
         }
 
-        body.dark-mode .modal-content{
+        body.dark-mode .modal-content {
             background-color: var(--btn-bg-dark);
         }
 
@@ -82,13 +83,22 @@
             top: -12px;
             left: 0;
             font-size: 14px;
-            color: #f9e20f;
+            color: var(--amarelo);
             padding: 0;
         }
 
         body.dark-mode input:focus {
             outline: none;
-            border-color: #f9e20f;
+            border-color: var(--amarelo);
+        }
+
+        body.dark-mode button:hover {
+            box-shadow: inset 0 0 0 2px var(--amarelo);
+            color: var(--amarelo);
+        }
+
+        body.dark-mode label {
+            color: #8b8a94;
         }
 
 
@@ -106,13 +116,19 @@
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
-            width: 350px;
+            width: 100%;
             text-align: center;
+            box-sizing: border-box;
+
         }
 
         .input-container {
             position: relative;
             margin: 25px;
+        }
+
+        .input-container i{
+            margin-bottom: 20px;
         }
 
         input {
@@ -185,7 +201,7 @@
             cursor: pointer;
         }
 
-        
+
 
         #toggleTheme {
             width: 100%;
@@ -198,7 +214,7 @@
             margin: 10px auto;
         }
 
-        .botoes{
+        .botoes {
             display: flex;
             margin: 10px;
             gap: 20px;
@@ -240,16 +256,54 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        .tudo {
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo {
+            padding: 20px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+
+        }
+
+        .input-error input {
+            border-color: var(--rosa);
+            border-bottom: 1px solid var(--rosa);
+        }
+
+        .input-error label {
+            color: var(--rosa);
+        }
+
+        .input-error-msg {
+            color: var(--rosa);
+            font-size: 12px;
+            height: 16px;
+            padding-top: 2px;
+            display: block;
+            visibility: hidden;
+            text-align: left;
+        }
     </style>
 </head>
 
 <body>
     <div class="tudo">
+        <div class="logo"><img src="https://i.postimg.cc/mgfxyS7g/famlogo1.png"></div>
         <div class="login-container">
-            <h2>Login</h2>
+            <h2>Portal Acadêmico</h2>
             <div class="input-container">
                 <input type="text" id="username" required>
                 <label for="username">Usuário</label>
+                <span class="input-error-msg"></span>
             </div>
             <div class="input-container">
                 <input type="password" id="password" required>
@@ -257,6 +311,8 @@
                 <span class="toggle-password" id="togglePassword">
                     <i class="fa-solid fa-eye"></i>
                 </span>
+                <span class="input-error-msg"></span>
+
             </div>
             <button id="login-btn">Entrar</button>
         </div>
@@ -276,6 +332,7 @@
     </div>
 
     <script>
+
         // Pega os elementos da página
         const modal = document.getElementById('tutorialModal');
         const btn = document.getElementById('showTutorialBtn');
@@ -298,28 +355,109 @@
             }
         }
 
-        document.getElementById('toggleTheme').addEventListener('click', function () {
-            document.body.classList.toggle('dark-mode');
-            if (document.body.classList.contains('dark-mode')) {
-                this.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        document.addEventListener('DOMContentLoaded', function () {
+            // Verifica a escolha salva quando a página é carregada
+            const toggleThemeBtn = document.getElementById('toggleTheme');
+
+            if (localStorage.getItem('dark-mode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                toggleThemeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
             } else {
-                this.innerHTML = '<i class="fa-solid fa-moon"></i>';
+                document.body.classList.remove('dark-mode');
+                toggleThemeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
             }
+
+            toggleThemeBtn.addEventListener('click', function () {
+                document.body.classList.toggle('dark-mode');
+                if (document.body.classList.contains('dark-mode')) {
+                    this.innerHTML = '<i class="fa-solid fa-sun"></i>';
+                    localStorage.setItem('dark-mode', 'enabled'); // Salva a escolha no localStorage
+                } else {
+                    this.innerHTML = '<i class="fa-solid fa-moon"></i>';
+                    localStorage.removeItem('dark-mode'); // Remove a escolha do localStorage
+                }
+            });
         });
 
-        document.getElementById('login-btn').addEventListener('click', function () {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
 
-            // Aqui você pode adicionar a lógica de validação e autenticação no futuro
-            // por meio de uma chamada AJAX para o backend.
-            // Por enquanto, vamos apenas exibir uma mensagem de sucesso/falha.
-            if (username === 'usuario' && password === 'senha') {
-                alert('Login bem-sucedido!');
+        document.getElementById('login-btn').addEventListener('click', function() {
+    const usernameContainer = document.querySelector('div.input-container:nth-child(2)');
+    const passwordContainer = document.querySelector('div.input-container:nth-child(3)');
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    let usernameErrorMsg = usernameContainer.querySelector('.input-error-msg');
+    let passwordErrorMsg = passwordContainer.querySelector('.input-error-msg');
+
+    usernameContainer.classList.remove('input-error');
+    passwordContainer.classList.remove('input-error');
+
+    // inicializar as mensagens de erro como invisíveis
+    if (usernameErrorMsg) usernameErrorMsg.style.visibility = 'hidden';
+    if (passwordErrorMsg) passwordErrorMsg.style.visibility = 'hidden';
+
+    if(username === '' || password === '') {
+        if(username === '') {
+            usernameContainer.classList.add('input-error');
+            if (!usernameErrorMsg) {
+                usernameErrorMsg = document.createElement('span');
+                usernameErrorMsg.classList.add('input-error-msg');
+                usernameErrorMsg.innerText = 'Por favor, insira um usuário';
+                usernameContainer.appendChild(usernameErrorMsg);
             } else {
-                alert('Usuário ou senha incorretos. Por favor, tente novamente.');
+                usernameErrorMsg.innerText = 'Por favor, insira um usuário';
             }
-        });
+            usernameErrorMsg.style.visibility = 'visible';
+        }
+        
+        if(password === '') {
+            passwordContainer.classList.add('input-error');
+            if (!passwordErrorMsg) {
+                passwordErrorMsg = document.createElement('span');
+                passwordErrorMsg.classList.add('input-error-msg');
+                passwordErrorMsg.innerText = 'Por favor, insira uma senha';
+                passwordContainer.appendChild(passwordErrorMsg);
+            } else {
+                passwordErrorMsg.innerText = 'Por favor, insira uma senha';
+            }
+            passwordErrorMsg.style.visibility = 'visible';
+        }
+        return;
+    }
+
+    if(username !== 'usuario' || password !== 'senha') {
+        if(username !== 'usuario') {
+            usernameContainer.classList.add('input-error');
+            if (!usernameErrorMsg) {
+                usernameErrorMsg = document.createElement('span');
+                usernameErrorMsg.classList.add('input-error-msg');
+                usernameErrorMsg.innerText = 'Usuário incorreto';
+                usernameContainer.appendChild(usernameErrorMsg);
+            } else {
+                usernameErrorMsg.innerText = 'Usuário incorreto';
+            }
+            usernameErrorMsg.style.visibility = 'visible';
+        }
+        
+        if(password !== 'senha') {
+            passwordContainer.classList.add('input-error');
+            if (!passwordErrorMsg) {
+                passwordErrorMsg = document.createElement('span');
+                passwordErrorMsg.classList.add('input-error-msg');
+                passwordErrorMsg.innerText = 'Senha incorreta';
+                passwordContainer.appendChild(passwordErrorMsg);
+            } else {
+                passwordErrorMsg.innerText = 'Senha incorreta';
+            }
+            passwordErrorMsg.style.visibility = 'visible';
+        }
+        return;
+    }
+
+    alert('Login bem-sucedido!');
+});
+
+
 
         document.getElementById('togglePassword').addEventListener('click', function () {
             const passwordField = document.getElementById('password');
