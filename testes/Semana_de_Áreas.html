@@ -82,9 +82,7 @@
             border-radius: 5px;
             position: relative;
             background-color: var(--cordoeventoatual);
-            /* Verde claro */
             width: 100%;
-            /* Pode ajustar conforme necessário */
             padding: 20px;
             min-height: 450px;
             max-height: fit-content;
@@ -92,9 +90,7 @@
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            /* Organiza os elementos em coluna */
             justify-content: flex-end;
-            /* Posiciona os elementos na parte inferior do contêiner */
         }
 
         .titulo {
@@ -117,6 +113,10 @@
             color: white;
             font-weight: 900;
             text-transform: uppercase;
+            width: 100%;
+            display: inline-block;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
 
         .descricao {
@@ -136,7 +136,7 @@
                 transform: translateX(0);
             }
 
-            50% {
+            20% {
                 transform: translateX(5px);
             }
 
@@ -150,7 +150,7 @@
             height: 0;
             border-top: 4px solid transparent;
             border-bottom: 4px solid transparent;
-            border-left: 8px solid #333;
+            border-left: 8px solid #f9e20f;
             display: inline-block;
             margin-left: 5px;
             animation: pulseArrow 1.5s infinite;
@@ -199,8 +199,11 @@
                 border-right: 0;
                 position: absolute;
                 top: 0;
-                right: 0;
+                border-radius: 0 0 0 5px;
                 margin-right: 20px;
+                border-bottom: 2px dotted #f9e20f;
+                border-left: 2px dotted #f9e20f;
+                text-align: center;
             }
 
             .dataetitulo {
@@ -209,7 +212,9 @@
             }
 
             .qualsemana {
-                font-size: 35px;
+                font-size: 28px;
+                width: 500px;
+                white-space: nowrap;
             }
 
             .eventoatualtitulo {
@@ -218,6 +223,20 @@
 
             .logosemana {
                 max-width: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .qualsemana {
+                width: 350px;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .qualsemana {
+                width: 280px;
+                white-space: nowrap;
             }
         }
     </style>
@@ -255,7 +274,7 @@
                         </div>
                     </div>
                     <div class="titulo">
-                        <div class="eventoatualtitulo">Evento atual</div>
+                        <div class="eventoatualtitulo">Semana atual</div>
                         <div class="qualsemana">Gestão e Direito</div>
                     </div>
                 </div>
@@ -271,8 +290,6 @@
                 </div>
             </div>
         </section>
-
-
     </main>
 
     <!-- JavaScript e Popper.js do Bootstrap -->
