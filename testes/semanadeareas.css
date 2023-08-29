@@ -69,6 +69,7 @@ h3{
 
 header {
     width: 100%;
+    height: 100dvh;
     height: 100vh;
     /* Isso faz o header cobrir toda a altura da janela. */
     display: flex;
@@ -313,6 +314,7 @@ main {
 .tab h3 {
     margin: 0;
     padding: 10px;
+    margin-left: 10px
 }
 .content {
     display: none;
@@ -332,19 +334,117 @@ main {
 }
 
 .content a:hover {
-    background-color: #e53888;
+    color: #45b7e5;
 }
 
 .content a:first-child{
     border-radius: 5px 5px  0 0;
     margin-top: 0;
-
 }
 
 .content a:last-child{
     border-radius: 0 0 5px 5px;
 }
   
+#headerCarousel .carousel-item {
+    opacity: 1;
+    transition-duration: 1s;
+}
+
+#headerCarousel .carousel-item.active {
+    opacity: 1;
+}
+
+img {
+    vertical-align: middle;
+    background-position: cover;
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+    
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+ 
+
 @media (max-width: 700px) {
 
     .dataetitulo {
@@ -368,11 +468,12 @@ main {
     .eventospassados {
         flex-direction: column;
         align-items: center;
-        height: 600px;
+        height: 800px;
 
     }
 
     .mini-container {
         width: 100%;
+
     }
 }
