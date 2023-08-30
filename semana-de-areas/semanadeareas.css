@@ -2,17 +2,7 @@
 
 :root {
     /* Cores */
-    --rosa: #e53888;
-    --azul-principal: #1b3556;
-    --azul-claro: #45b7e5;
-    --amarelo: #f9e20f;
-    --neutral-light: #f2f3f8;
-    --bg-branco: white;
-    --bg-scroll: rgba(0, 0, 0, 0.253);
-    --texto-preto: #242527;
-
     --cordoeventoatual: #5d378d;
-
 
     /* Tipografia */
     --primary-font: 'Source Sans 3', sans-serif;
@@ -30,11 +20,6 @@
 
     /* Transições */
     --transition-speed: 0.3s;
-
-    --bg-dark: #121212;
-    --text-dark: #ddd;
-    --input-bg-dark: #1d1d1d;
-    --btn-bg-dark: #242424;
 }
 
 ::-webkit-scrollbar {
