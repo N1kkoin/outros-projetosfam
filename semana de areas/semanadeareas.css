@@ -67,6 +67,7 @@ h3 {
     font-weight: 700;
 }
 
+
 header {
     width: 100%;
     height: 100dvh;
@@ -113,7 +114,6 @@ main {
     padding: 20px;
     background-color: #f2f3f8;
     border-radius: 5px;
-
 }
 
 .dataetitulo {
@@ -127,9 +127,7 @@ main {
     background-color: var(--cordoeventoatual);
     width: 100%;
     padding: 20px;
-    min-height: 450px;
-    max-height: fit-content;
-    height: fit-content;
+    height: 550px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -156,7 +154,6 @@ main {
     font-weight: 900;
     text-transform: uppercase;
     width: 100%;
-    overflow: hidden;
 }
 
 .descricao {
@@ -198,6 +195,7 @@ main {
 .texto-descricao {
     flex: 4;
     text-align: justify;
+    text-indent: 15px;
 }
 
 .data {
@@ -286,19 +284,45 @@ main {
 .btn:hover {
     color: white;
     background-color: transparent;
+    box-shadow: inset 0 0 0 2px #f9e20f;
+}
+
+.btn2 {
+    color: var(--bg-dark);
+    border: none;
+    padding: 8px 16px;
+    background-color: #f9e20f;
+    border-radius: var(--border-5);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: var(--primary-font);
+    text-transform: var(--caixatexto);
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn2:hover {
+    color: white;
+    background-color: transparent;
     box-shadow: inset 0 0 0 2px white;
+    text-decoration: none;
+
 }
 
 .umevento {
-    background-color: #e53888;
+    background-color: #E93F3C;
 }
 
 .doisevento {
-    background-color: #45b7e5;
+    background-color: #199eae;
 }
 
 .tresevento {
-    background-color: #3eb288;
+    background-color: #1b3556;
 }
 
 .accordion {
@@ -333,7 +357,7 @@ main {
     text-decoration: none;
     color: var(--texto-preto);
     background-color: white;
-    margin-top: 10px;
+    margin-top: 1px;
     font-size: 16px;
     font-weight: 500;
 }
@@ -369,8 +393,8 @@ main {
     }
 
     .qualsemana {
-        font-size: 28px;
-        max-width: 500px;
+        font-size: 5vw;
+        margin-bottom: 10px;
     }
 
     .eventoatualtitulo {
@@ -456,4 +480,50 @@ main {
 .slideshow-item.visible {
     opacity: 1;
     z-index: 2;
+}
+
+
+.veterinaria{
+    color: #3eb288;
+    font-weight: bold;
+}
+
+.saudeum{
+    color: #45b7e5;
+    font-weight: bold;
+}
+
+.saudedois{
+    color: #199eae;
+    font-weight: bold;
+}
+
+.exatas{
+    color: #1b3556;
+    font-weight: bold;
+}
+
+.direito{
+    color: #E93F3C;
+    font-weight: bold;
+}
+
+.educaçao{
+    color: #5d378d;
+    font-weight: bold;
+}
+
+.comunicacao{
+    color: #e53888;
+    font-weight: bold;
+}
+
+.gestao{
+    color: #7778BD;
+    font-weight: bold;
+}
+
+.tec{
+    color: #9AC765;
+    font-weight: bold;
 }
