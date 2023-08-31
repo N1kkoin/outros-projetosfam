@@ -39,8 +39,10 @@
     color: #45b7e5;
 }
 
-.breadcrumb-item, .breadcrumb-current {
-    color: black; /* Você pode ajustar a cor conforme desejar. */
+.breadcrumb-item,
+.breadcrumb-current {
+    color: black;
+    /* Você pode ajustar a cor conforme desejar. */
     text-decoration: none;
     margin-right: 5px;
 }
@@ -54,5 +56,29 @@
 }
 
 .breadcrumb-current {
-    color: #8d8d8d; /* Cor para o item atual no breadcrumb. */
+    color: #8d8d8d;
+    /* Cor para o item atual no breadcrumb. */
+}
+
+/* Personaliza a barra de rolagem inteira */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+/* Personaliza o fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+/* Personaliza a barra de rolagem em si */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+    border: 3px solid #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Personaliza a barra de rolagem quando você passa o mouse sobre ela */
+::-webkit-scrollbar-thumb:hover {
+    background: white;
 }

@@ -1,67 +1,86 @@
-body{
-    padding: 0;
+body {
+    margin: 0;
     font-family: var(--primary-font);
 }
-header{
-    margin: 0 auto;
-    max-width: 960px;
+
+h2 {
+    margin: 0;
 }
-.titulodasemana{
+
+h1 {
+    margin: 0;
+
+}
+
+header {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+.titulodasemana {
     background-color: var(--educaçao);
     padding: 20px;
     color: white;
     font-size: 50px;
     font-weight: 900;
     text-transform: uppercase;
-    border-radius: 10px;
     text-align: center;
+    border-radius: 10px;
 }
 
-main{
+main {
     max-width: 960px;
-    margin: 20px auto;
-
+    margin: 0 auto;
+    padding: 20px;
 }
-.palavrastheme {
+
+.container {
     display: flex;
-    background-color: antiquewhite;
-    width: 100%;
-    margin: 20px auto;
-    border-radius: 5px;
+    border: 1px solid black;
+    padding: 20px;
 }
 
 .left-side {
+    flex: 1;
+    padding-right: 20px;
+    position: relative;
+}
+
+.left-side img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5PX;
+}
+
+.left-side h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.scrollable-text {
+    height: 100px;
+    padding: 10px;
+    padding-top: 0;
+    margin-top: 10px;
+    overflow-y: auto;
+    background-color: #f1f1f1;
+    border-radius: 5px;
     text-align: justify;
-    padding: 20px;
+
 }
 
 .right-side {
-    flex: 1;
-    padding: 20px;
-    padding-left: 0;
+    flex: 2;
     display: flex;
-    align-items: center;
-    justify-content: right;
-    
+    flex-direction: column;
 }
 
-img {
-    max-width: 250px;
-    height: auto;
-    border-radius: 5px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #007BFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #0056b3;
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    /* Isso empurrará os detalhes para a parte inferior */
 }
