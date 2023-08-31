@@ -1,12 +1,10 @@
 body{
-    margin: 0;
     padding: 0;
     font-family: var(--primary-font);
 }
-
 header{
-    max-width: 960px;
     margin: 0 auto;
+    max-width: 960px;
 }
 .titulodasemana{
     background-color: var(--educaçao);
@@ -15,4 +13,52 @@ header{
     font-size: 50px;
     font-weight: 900;
     text-transform: uppercase;
+    border-radius: 10px;
+    text-align: center;
+}
+
+main{
+    max-width: 960px;
+    margin: 20px auto;
+
+}
+.palavrastheme {
+    display: flex;
+    background-color: antiquewhite;
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.left-side {
+    flex: 1;
+    padding: 20px;
+}
+
+.right-side {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+img {
+    max-width: 250px;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
 }
