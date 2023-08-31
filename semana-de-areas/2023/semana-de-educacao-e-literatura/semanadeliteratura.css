@@ -31,21 +31,24 @@ main{
 }
 
 .left-side {
-    flex: 1;
+    text-align: justify;
     padding: 20px;
 }
 
 .right-side {
     flex: 1;
     padding: 20px;
+    padding-left: 0;
     display: flex;
     align-items: center;
     justify-content: right;
+    
 }
 
 img {
     max-width: 250px;
     height: auto;
+    border-radius: 5px;
 }
 
 .btn {
