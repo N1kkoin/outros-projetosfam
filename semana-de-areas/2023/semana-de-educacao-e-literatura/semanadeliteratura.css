@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: var(--primary-font);
+    background-color: white;
 }
 
 h2 {
@@ -15,8 +16,7 @@ h1 {
 header {
     max-width: 960px;
     margin: 0 auto;
-    padding: 20px;
-
+    padding: 10px;
 }
 
 .titulodasemana {
@@ -27,14 +27,13 @@ header {
     font-weight: 900;
     text-transform: uppercase;
     text-align: center;
-    border-radius: 10px;
-
+    border-radius: 10px 0 ;
 }
 
 main {
     max-width: 960px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 .container {
@@ -52,12 +51,12 @@ main {
     height: 100%;
 }
 
-.left-side:nth-child(even){
+.left-side:nth-child(even) {
     padding-left: 20px;
 
 }
 
-.left-side:nth-child(odd){
+.left-side:nth-child(odd) {
     padding-right: 20px;
 }
 
@@ -92,10 +91,11 @@ main {
     flex-direction: column;
 }
 
-.right-side h1{
+.right-side h1 {
     font-size: 35px;
 
 }
+
 .right-side h2 {
     padding-bottom: 15px;
     line-height: 0.7;
@@ -185,11 +185,11 @@ main {
     margin-right: 2px;
 }
 
-.image-container-text{
-display: none;
+.image-container-text {
+    display: none;
 }
 
-section{
+section {
     margin-top: 20px;
 }
 
@@ -211,7 +211,7 @@ section{
     .right-side h2 {
         border-bottom: 0;
     }
-    
+
     .scrollable-text {
         height: 120px;
         width: 100%;
@@ -231,35 +231,35 @@ section{
         margin-bottom: 5px;
     }
 
-    .juntostextimg{
+    .juntostextimg {
         display: flex;
     }
 
-    .image-container-text:nth-child(even){
+    .image-container-text:nth-child(even) {
         margin-left: 20px;
     }
-    
-    .image-container-text:nth-child(odd){
+
+    .image-container-text:nth-child(odd) {
         margin-right: 20px;
     }
-    
-    
-    .image-container-text{
+
+
+    .image-container-text {
         display: block;
         width: 120px;
         height: 130px;
-        overflow: hidden; 
+        overflow: hidden;
         margin-top: 10px;
         flex: none;
         border-radius: 5px;
     }
-    
-    .image-container-text img{
+
+    .image-container-text img {
         max-width: 100%;
         height: 100%;
         object-fit: cover;
     }
-    
+
 }
 
 @media (max-width: 600px) {
@@ -270,6 +270,14 @@ section{
 
     .right-side h1 {
         font-size: 5vw;
-
     }
+
+    .image-container-text {
+        display: none;
+    }
+
+    .titulodasemana {
+        font-size: 6vw;
+    }
+
 }

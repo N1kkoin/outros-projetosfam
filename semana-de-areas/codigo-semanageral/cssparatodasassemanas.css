@@ -84,3 +84,10 @@
 ::-webkit-scrollbar-thumb:hover {
     background: white;
 }
+
+@media (max-width: 600px) {
+    .breadcrumb{
+        font-size: 2.5vw;
+    }
+
+}
