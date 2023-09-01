@@ -16,7 +16,8 @@ h1 {
 header {
     max-width: 960px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px;
+    padding-top: 0;
 }
 
 .titulodasemana {
@@ -27,13 +28,13 @@ header {
     font-weight: 900;
     text-transform: uppercase;
     text-align: center;
-    border-radius: 10px 0 ;
+    border-radius: 0 0 10px 10px;
 }
 
 main {
     max-width: 960px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px;
 }
 
 .container {
@@ -280,4 +281,30 @@ section {
         font-size: 6vw;
     }
 
+}
+
+
+
+
+/* Personaliza o fundo da barra de rolagem */
+.scrollable-text::-webkit-scrollbar-track {
+    background: var(--neutral-light);
+    border-radius: 5px;
+}
+
+/* Personaliza a barra de rolagem em si */
+.scrollable-text::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--neutral-light);
+    border-radius: 10px;
+}
+
+/* Personaliza a barra de rolagem quando você passa o mouse sobre ela */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--educaçao);
+}
+
+iframe{
+    margin-top: 20px;
+    background-color: var(--neutral-light);
 }
