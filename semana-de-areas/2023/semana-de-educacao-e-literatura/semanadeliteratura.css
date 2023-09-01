@@ -307,4 +307,6 @@ section {
 iframe{
     margin-top: 20px;
     background-color: var(--neutral-light);
+    height: 50vh;
+
 }
