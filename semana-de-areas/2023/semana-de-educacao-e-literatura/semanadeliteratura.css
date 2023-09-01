@@ -158,14 +158,14 @@ main {
 }
 
 .titulo {
-    font-weight: 700;
+    font-weight: 900;
     max-width: var(--container-width);
     margin: 0 auto;
-    padding-top: 20px;
     padding-bottom: 10px;
     color: #242527;
     border-radius: 5px 5px 0 0;
-    font-size: 30px;
+    font-size: 35px;
+    text-transform: uppercase;
 
 }
 
@@ -218,7 +218,7 @@ section{
         margin-top: 10px;
 
     }
-    
+
     .image-title-mobile {
         display: block;
         border-top: 2px dotted var(--amarelo);
@@ -234,13 +234,21 @@ section{
     .juntostextimg{
         display: flex;
     }
+
+    .image-container-text:nth-child(even){
+        margin-left: 20px;
+    }
+    
+    .image-container-text:nth-child(odd){
+        margin-right: 20px;
+    }
+    
     
     .image-container-text{
         display: block;
         width: 120px;
         height: 130px;
         overflow: hidden; 
-        margin-right: 20px;
         margin-top: 10px;
         flex: none;
         border-radius: 5px;
