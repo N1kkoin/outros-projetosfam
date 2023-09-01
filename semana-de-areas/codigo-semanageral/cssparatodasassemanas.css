@@ -8,6 +8,8 @@
     --veterinaria: #3eb288;
     --saudeum: #45b7e5;
     --educaçao: #5d378d;
+    --amarelo: #f9e20f;
+    --neutral-light: #f2f3f8;
 
     --cordoeventoatual: #5d378d;
 
@@ -67,14 +69,14 @@
 
 /* Personaliza o fundo da barra de rolagem */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--neutral-light);
     border-radius: 5px;
 }
 
 /* Personaliza a barra de rolagem em si */
 ::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.5);
-    border: 3px solid #f1f1f1;
+    border: 3px solid var(--neutral-light);
     border-radius: 10px;
 }
 
