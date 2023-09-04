@@ -281,6 +281,14 @@ section {
         font-size: 6vw;
     }
 
+    p {
+        font-size: 0.9rem;
+    }
+.details {
+    font-size: 0.9rem;
+
+}
+
 }
 
 
@@ -310,3 +318,4 @@ iframe{
     height: 50vh;
     border: 1px solid var(--neutral-light);
 }
+
