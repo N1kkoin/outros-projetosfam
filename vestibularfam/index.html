@@ -15,38 +15,44 @@
             background-color: white;
             font-family: 'Source Sans 3', sans-serif;
         }
+
         main {
             max-width: 960px;
             padding: 20px;
             margin: 0 auto;
         }
+
         header {
             max-width: 960px;
             padding: 0 20px;
             margin: 0 auto;
         }
+
         .logo {
             margin: 0 auto;
             width: 200px;
             height: auto;
         }
+
         .estudenafamcontainer {
             background-color: transparent;
             border-radius: 10px;
-            border: 2px solid #1b3556;
             min-height: 50vh;
 
         }
+
         h2 {
             text-align: center;
             margin-bottom: 20px;
         }
+
         .btn-group {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 10px;
         }
+
         button {
             flex: 1;
             color: #242527;
@@ -63,11 +69,13 @@
             font-weight: 500;
             font-size: 16px;
         }
+
         button:hover {
             color: #242527;
             background-color: transparent;
             box-shadow: inset 0 0 0 2px #1b3556;
         }
+
         .btn2 {
             width: 100%;
             box-shadow: inset 0 0 0 2px #1b3556;
@@ -76,28 +84,31 @@
             margin-top: 20px;
             color: #242527;
         }
+
         .btn2:hover {
             color: #242527;
             background-color: #f9e20f;
             box-shadow: inset 0 0 0 2px #f9e20f;
         }
+
         .texto {
             text-indent: 20px;
             text-align: justify;
             padding: 0 10px;
-            border: 1px solid #1b3556;
         }
+
         .titulo {
             background-color: #1b3556;
             padding: 20px;
             text-align: center;
             border-radius: 0 0 10px 10px;
         }
+
         svg {
             width: 94px;
             margin-left: 15px;
-
         }
+
         .esduremaisfam {
             display: flex;
             align-items: center;
@@ -105,6 +116,7 @@
             white-space: nowrap;
             flex-wrap: nowrap;
         }
+
         .estudena {
             color: white;
             font-size: 50px;
@@ -112,22 +124,27 @@
             text-transform: uppercase;
             display: inline-block;
         }
+
         .escolha {
             color: #f9e20f;
             margin-top: -10px;
         }
+
         .btn-group button.active {
             background-color: #1b3556;
             color: white;
             /* Exemplo de cor. Ajuste conforme desejado. */
         }
+
         .btn-group button.active:hover {
             background-color: #45b7e5;
             box-shadow: inset 0 0 0 2px #45b7e5;
         }
+
         .textodireita {
-            text-align: right;
             font-size: small;
+            padding: 0 10px;
+            text-align: right;
         }
 
         @media (max-width: 880px) {
@@ -202,17 +219,22 @@
 
     </header>
     <main>
-        <div class="estudenafamcontainer">
-            <div class="btn-group">
-                <button onclick="showText(2)" data-number="2">Vestibular</button>
-                <button onclick="showText(1)" data-number="1">ENEM</button>
-                <button onclick="showText(3)" data-number="3">2° Graduação</button>
-                <button onclick="showText(4)" data-number="4">Transferência</button>
-                <button onclick="showText(5)" data-number="5">Pós-Graduação</button>
+        <section>
+            <div class="estudenafamcontainer">
+                <div class="btn-group">
+                    <button onclick="showText(2)" data-number="2">Vestibular</button>
+                    <button onclick="showText(1)" data-number="1">ENEM</button>
+                    <button onclick="showText(3)" data-number="3">2° Graduação</button>
+                    <button onclick="showText(4)" data-number="4">Transferência</button>
+                    <button onclick="showText(5)" data-number="5">Pós-Graduação</button>
 
+                </div>
+                <div id="text-container"></div>
             </div>
-            <div id="text-container"></div>
-        </div>
+        </section>
+        <section>
+            
+        </section>
     </main>
     <script>
         function highlightButton(btn) {
@@ -246,13 +268,16 @@
                 case 3:
                     content = `
                     <a href="https://fam.inscricao.crmeducacional.com/login/22" target="_blank"><button class="btn2">Inscreva-se</button></a>
-                    <p class="texto">Se você já tem formação superior e deseja cursar uma nova faculdade, basta selecionar a forma de ingresso, acessar a área do candidato com o seu CPF e senha, escolher seu curso e seguir com a matrícula. Se desejar <b>eliminar matérias</b> já cursadas da primeira graduação, este poderá ser solicitado após a matrícula conforme calendário acadêmico. </br> <span class="textodireita">Em caso de dúvidas envie email para matricula@fam.br</span></p>
+                    <p class="texto">Se você já tem formação superior e deseja cursar uma nova faculdade, basta selecionar a forma de ingresso, acessar a área do candidato com o seu CPF e senha, escolher seu curso e seguir com a matrícula. Se desejar <b>eliminar matérias</b> já cursadas da primeira graduação, este poderá ser solicitado após a matrícula conforme calendário acadêmico. </p>
+                    <p class="textodireita">Em caso de dúvidas envie email: </br><span style="color: #45b7e5;"> matricula@fam.br<span></p>
                     `;
                     break;
                 case 4:
                     content = `
                     <a href="https://fam.inscricao.crmeducacional.com/login/23" target="_blank"><button class="btn2">Faça sua transferência</button></a>
-                    <p class="texto">Aos que desejam migrar de outra instituição para a FAM, oferecemos dentro de nosso calendário acadêmico o processo de transferência. Basta selecionar a forma de ingresso transferência, acessar a área do candidato com o seu CPF e senha, escolher seu curso, apresentar a documentação solicitada, adiantamos que é preciso ter em mãos o conteúdo programático e histórico escolar completo. A taxa de transferência tem o valor de R$ 40,00. A documentação será encaminhada à coordenação do curso para análise comparativa das séries e disciplinas cursadas com aprovação do interessado. Havendo deferimento do pedido e sua aprovação, a assistente da coordenação entrará em contato para prosseguir com a matrícula. </br>Em caso de dúvidas envie email para matricula@fam.br</p>
+                    <p class="texto">Aos que desejam migrar de outra instituição para a FAM, oferecemos dentro de nosso calendário acadêmico o processo de transferência. Basta selecionar a forma de ingresso transferência, acessar a área do candidato com o seu CPF e senha, escolher seu curso, apresentar a documentação solicitada, adiantamos que é preciso ter em mãos o conteúdo programático e histórico escolar completo. A taxa de transferência tem o valor de R$ 40,00. A documentação será encaminhada à coordenação do curso para análise comparativa das séries e disciplinas cursadas com aprovação do interessado. Havendo deferimento do pedido e sua aprovação, a assistente da coordenação entrará em contato para prosseguir com a matrícula.</p>
+                    <p class="textodireita">Em caso de dúvidas envie email: </br><span style="color: #45b7e5;"> matricula@fam.br<span></p>
+
                     `;
                     break;
                 case 5:
