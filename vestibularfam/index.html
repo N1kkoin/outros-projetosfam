@@ -36,8 +36,7 @@
 
         .estudenafamcontainer {
             background-color: transparent;
-            border-radius: 10px;
-            min-height: 50vh;
+            min-height: 400px;
 
         }
 
@@ -61,7 +60,6 @@
             padding: 10px 15px;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease;
             border-radius: 5px;
             font-family: 'Source Sans 3', sans-serif;
             transition: all 0.3s;
@@ -147,6 +145,38 @@
             text-align: right;
         }
 
+        .mec {
+            background-color: white;
+            border: 1px solid #45b7e5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .meceinfo {
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .informacoes {
+            margin-left: 20px;
+        }
+
+        .campanha {
+
+            margin-bottom: 10px;
+        }
+
+        .campanha img {
+            display: block;
+            max-width: 960px;
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
         @media (max-width: 880px) {
             .btn-group {
                 display: grid;
@@ -157,30 +187,40 @@
                 grid-column: span 2;
             }
 
+            .estudenafamcontainer {
+                min-height: 450px;
+            }
+        }
 
-            @media (max-width: 500px) {
-                .titulo .esduremaisfam .estudena {
-                    transform: scale(0.6);
-                    transform-origin: right;
-                    margin-left: -60px;
-                }
-
-                .titulo .esduremaisfam svg {
-                    transform: scale(0.6);
-                    transform-origin: left;
-                }
-
-                svg {
-                    margin-left: 8px;
-                    margin-bottom: 1px;
-                }
-
-                .escolha {
-                    color: #f9e20f;
-                    margin-top: -20px;
-                }
+        @media (max-width: 500px) {
+            .titulo .esduremaisfam .estudena {
+                transform: scale(0.6);
+                transform-origin: right;
+                margin-left: -60px;
             }
 
+            .titulo .esduremaisfam svg {
+                transform: scale(0.6);
+                transform-origin: left;
+            }
+
+            svg {
+                margin-left: 8px;
+                margin-bottom: 1px;
+            }
+
+            .escolha {
+                color: #f9e20f;
+                margin-top: -20px;
+            }
+
+            .meceinfo {
+                display: block;
+            }
+
+            .estudenafamcontainer {
+                min-height: 0;
+            }
         }
     </style>
 </head>
@@ -216,7 +256,6 @@
                 </svg></div>
             <p class="escolha">Escolha sua forma de ingressar</p>
         </div>
-
     </header>
     <main>
         <section>
@@ -227,13 +266,22 @@
                     <button onclick="showText(3)" data-number="3">2° Graduação</button>
                     <button onclick="showText(4)" data-number="4">Transferência</button>
                     <button onclick="showText(5)" data-number="5">Pós-Graduação</button>
-
                 </div>
-                <div id="text-container"></div>
+                <div class="campanha" id="text-container">
+                    <img id="initial-image" src="img.jpeg" alt="Imagem inicial" />
+                </div>
             </div>
         </section>
         <section>
-            
+            <div class="meceinfo">
+                <img class="mec" src="selo-e-mec.png">
+                <div class="informacoes">
+                    <p>Portal Acadêmico FAM</p>
+                    <p>Guia de Cursos</p>
+                    <p>Edital 2023</p>
+                    <p>Bolsas e descontos</p>
+                </div>
+            </div>
         </section>
     </main>
     <script>
@@ -250,6 +298,8 @@
 
         function showText(btnNumber) {
             const textContainer = document.getElementById('text-container');
+            const initialImage = document.getElementById('initial-image');
+
             let content = '';
 
             switch (btnNumber) {
@@ -286,10 +336,15 @@
                     <p class="texto">De olho nas tendências profissionais e tecnológicas a FAM está sempre buscando cursos de Pós-Graduação que correspondam as exigências do mercado de trabalho. Para os interessados em um upgrade na carreira não é preciso realizar prova. Basta selecionar a forma de ingresso, acessar a área do candidato com o seu CPF e senha, escolher seu curso e seguir com a matrícula.</p>
                     `;
                     break;
+                default:
+                    content = '';
+            }
+            if (initialImage) {
+                initialImage.style.display = 'none';
             }
 
             textContainer.innerHTML = content;
-            // Destaque o botão clicado
+
             const button = document.querySelector(`.btn-group button[data-number="${btnNumber}"]`);
             highlightButton(button);
         }
