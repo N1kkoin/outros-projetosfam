@@ -8,18 +8,31 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+        :root {
+            --clubecor: #e53888;
+        }
+
         body {
-            background-color: #f2f3f8;
+            background-color: var(--clubecor);
             margin: 0;
             padding: 0;
             font-family: 'Source Sans 3', sans-serif;
+
+        }
+
+        .limite {
+            max-width: 960px;
+            margin: 0 auto;
         }
 
         .clubedescontos {
             width: 100%;
             margin: 0 auto;
-            background-color: #45b7e5;
+            background-color: #f2f3f8;
+            background-image: url('fundo.png');
+            background-repeat: repeat;
             border-radius: 0;
+
         }
 
         .containerlogo {
@@ -35,8 +48,6 @@
         }
 
         header {
-            max-width: 960px;
-            margin: 0 auto;
             height: 260px;
         }
 
@@ -49,7 +60,7 @@
 
         .linha {
             width: 50%;
-            background-color: #45b7e5;
+            background-color: var(--clubecor);
             height: 1px;
             margin: 0 auto;
         }
@@ -62,11 +73,8 @@
             gap: 20px;
             padding: 20px;
             border-radius: 10px 10px 0 0;
-            max-width: 960px;
             margin-top: 20px;
-            margin: 0 auto;
             background-color: white;
-
         }
 
         .grid-item {
@@ -87,7 +95,6 @@
         .contentdogrid h3 {
             margin: 0;
             margin-bottom: 10px;
-
         }
 
         .contentdogrid p {
@@ -95,10 +102,17 @@
             margin: 0;
         }
 
-        .textodescontos {
+        .textodescontos h1 {
             font-size: 30px;
             font-weight: 800;
             text-transform: uppercase;
+        }
+
+        .textodescontos p {
+            margin-top: -25px;
+        }
+
+        .textodescontos {
             text-align: center;
             padding-top: 15px;
         }
@@ -133,20 +147,38 @@
             gap: 20px;
             /* Espaçamento entre os itens */
             padding: 20px;
+            padding-bottom: 0;
+
         }
 
         .griditemdescontos {
-            background-color: #f2f3f8;
-            padding: 10px;
             border-radius: 5px;
-
         }
+
+
+
+        .griditemdescontos:nth-child(2) h2 {
+            background-color: var(--clubecor);
+            border-radius: 5px 5px 0 0 ;
+        }
+
+        .griditemdescontos:nth-child(1) h2 {
+            background-color: #5d378d;
+            border-radius: 5px 5px 0 0 ;
+        }
+        .griditemdescontos:nth-child(3) h2 {
+            background-color: #f9e20f;
+            border-radius: 5px 5px 0 0 ;
+        }
+
 
         .griditemdescontos h2 {
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 50px;
             text-align: center;
+            color: white;
+
         }
 
         .griditemdescontos img {
@@ -154,17 +186,59 @@
             height: 150px;
             object-fit: cover;
         }
+
+        .descricao {
+            display: none;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #f2f3f8;
+            border-radius: 0 0 10px 10px;
+            margin-bottom: 20px;
+        }
+
+        .deslocamento {
+            margin-bottom: 0;
+        }
+
+        .desc-btn {
+            display: block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: var(--clubecor);
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .desc-btn:hover {
+            background-color: #3493b3;
+            /* Uma tonalidade mais escura para o hover */
+        }
+
+        .fimclube {
+            height: 20px;
+            width: 100%;
+            border-radius: 0 0 10px 10px;
+            background-color: white;
+            margin-bottom: 20px;
+
+        }
     </style>
 </head>
 
 <body>
-    <header class="containerlogo">
+    <header class="limite containerlogo">
         <img src="logocdvantagens.png">
     </header>
     <main>
         <section>
             <div class="motivosfam">
-                <div class="grid-container">
+                <div class="grid-container limite">
                     <div class="grid-item">
                         <img src="noun-text-2132279.png" alt="Ícone 1" class="icon">
                         <div class="contentdogrid">
@@ -210,34 +284,76 @@
         <section>
             <div class="clubedescontos">
                 <div class="descontos">
-                    <div class="linha"></div>
 
-                    <div class="textodescontos">descontos</div>
+                    <div class="textodescontos">
+                        <h1>descontos</h1>
+                        <p>Clique nas empresas para mais informações</p>
+                    </div>
+
                     <div class="gridcontainerdescontos">
                         <div class="griditemdescontos">
                             <h2>40%</h2>
                             <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-                                alt="Imagem 1">
-                                <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-                                alt="Imagem 1">
+                                class="desconto-img">
+                            <div class="descricao">
+                                Descrição da Imagem 1.1
+                                <button class="desc-btn">Saiba Mais</button>
+                            </div>
                         </div>
                         <div class="griditemdescontos">
                             <h2>20%</h2>
                             <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-                                alt="Imagem 2">dddddd
+                                class="desconto-img">
+                            <div class="descricao">
+                                Descrição da Imagem 1.1
+                                <button class="desc-btn">Saiba Mais</button>
+                            </div>
                         </div>
                         <div class="griditemdescontos">
                             <h2>10%</h2>
                             <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-                                alt="Imagem 2">
+                                class="desconto-img">
+                            <div class="descricao">
+                                Descrição da Imagem 1.1
+                                <button class="desc-btn">Saiba Mais</button>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
+                                class="desconto-img">
+                            <div class="descricao">
+                                Descrição da Imagem 1.1
+                                <button class="desc-btn">Saiba Mais</button>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
+        <div class=" limite fimclube"></div>
 
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let imagens = document.querySelectorAll('.desconto-img');
+            imagens.forEach(img => {
+                img.addEventListener('click', function () {
+                    // Remove descrições e deslocamentos anteriores
+                    let descricoes = document.querySelectorAll('.descricao');
+                    descricoes.forEach(desc => {
+                        desc.style.display = 'none';
+                    });
+                    let deslocamentos = document.querySelectorAll('.deslocamento');
+                    deslocamentos.forEach(d => {
+                        d.classList.remove('deslocamento');
+                    });
+
+                    // Mostra a descrição e desloca a imagem
+                    let descricao = this.nextElementSibling;
+                    descricao.style.display = 'block';
+                    this.classList.add('deslocamento');
+                });
+            });
+        });
+    </script>
 
 </body>
 
