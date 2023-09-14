@@ -60,7 +60,7 @@
 
         .linha {
             width: 50%;
-            background-color: var(--clubecor);
+            background-color: #f2f3f8;
             height: 1px;
             margin: 0 auto;
         }
@@ -159,16 +159,17 @@
 
         .griditemdescontos:nth-child(2) h2 {
             background-color: var(--clubecor);
-            border-radius: 5px 5px 0 0 ;
+            border-radius: 5px 5px 0 0;
         }
 
         .griditemdescontos:nth-child(1) h2 {
             background-color: #5d378d;
-            border-radius: 5px 5px 0 0 ;
+            border-radius: 5px 5px 0 0;
         }
+
         .griditemdescontos:nth-child(3) h2 {
             background-color: #f9e20f;
-            border-radius: 5px 5px 0 0 ;
+            border-radius: 5px 5px 0 0;
         }
 
 
@@ -195,6 +196,10 @@
             background-color: #f2f3f8;
             border-radius: 0 0 10px 10px;
             margin-bottom: 20px;
+        }
+
+        .descricao a {
+            text-decoration: none;
         }
 
         .deslocamento {
@@ -228,6 +233,7 @@
             margin-bottom: 20px;
 
         }
+        
     </style>
 </head>
 
@@ -281,9 +287,11 @@
                 </div>
             </div>
         </section>
+        
         <section>
             <div class="clubedescontos">
                 <div class="descontos">
+                    <div class="linha"></div>
 
                     <div class="textodescontos">
                         <h1>descontos</h1>
@@ -291,39 +299,18 @@
                     </div>
 
                     <div class="gridcontainerdescontos">
-                        <div class="griditemdescontos">
+                        <div class="griditemdescontos desconto-col" id="desconto-40">
                             <h2>40%</h2>
-                            <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-                                class="desconto-img">
-                            <div class="descricao">
-                                Descrição da Imagem 1.1
-                                <button class="desc-btn">Saiba Mais</button>
-                            </div>
                         </div>
-                        <div class="griditemdescontos">
+                        <div class="griditemdescontos desconto-col" id="desconto-20">
                             <h2>20%</h2>
-                            <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-                                class="desconto-img">
-                            <div class="descricao">
-                                Descrição da Imagem 1.1
-                                <button class="desc-btn">Saiba Mais</button>
-                            </div>
                         </div>
-                        <div class="griditemdescontos">
+                        <div class="griditemdescontos desconto-col" id="desconto-10">
                             <h2>10%</h2>
-                            <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-                                class="desconto-img">
-                            <div class="descricao">
-                                Descrição da Imagem 1.1
-                                <button class="desc-btn">Saiba Mais</button>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-                                class="desconto-img">
-                            <div class="descricao">
-                                Descrição da Imagem 1.1
-                                <button class="desc-btn">Saiba Mais</button>
-                            </div>
                         </div>
+                    </div>
+                    
+
                     </div>
                 </div>
             </div>
@@ -332,18 +319,32 @@
 
     </main>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
+    const googleSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRfEwrOn4LplY12o8ybuJRJ22dgw-phIEvM8ZNzb8KIpUOwfvx_aJEgqyS8GxLhb31DkJZq5b53badH/pub?output=csv';
+
+    fetch(googleSheetURL)
+        .then(response => response.text())
+        .then(data => {
+            let rows = data.split('\n').slice(1);
+            rows.forEach(row => {
+                let columns = row.split(',');
+
+                // Adicionar itens nas respectivas colunas
+                addItemToColumn('desconto-40', columns[0], columns[1], columns[2]);
+                addItemToColumn('desconto-20', columns[3], columns[4], columns[5]);
+                addItemToColumn('desconto-10', columns[6], columns[7], columns[8]);
+            });
+
+            // Adicionar evento de clique nas imagens APÓS inseri-las na página
             let imagens = document.querySelectorAll('.desconto-img');
             imagens.forEach(img => {
                 img.addEventListener('click', function () {
                     // Remove descrições e deslocamentos anteriores
-                    let descricoes = document.querySelectorAll('.descricao');
-                    descricoes.forEach(desc => {
+                    let todasImagens = document.querySelectorAll('.desconto-img');
+                    todasImagens.forEach(i => {
+                        let desc = i.nextElementSibling;
                         desc.style.display = 'none';
-                    });
-                    let deslocamentos = document.querySelectorAll('.deslocamento');
-                    deslocamentos.forEach(d => {
-                        d.classList.remove('deslocamento');
+                        i.classList.remove('deslocamento');
                     });
 
                     // Mostra a descrição e desloca a imagem
@@ -353,8 +354,29 @@
                 });
             });
         });
-    </script>
+});
 
+function addItemToColumn(columnId, imageUrl, descricao, linkUrl) {
+    const column = document.getElementById(columnId);
+
+    if(!imageUrl.trim()) return; 
+
+    const itemHtml = `
+        <div class="griditemdescontos">
+            <img src="${imageUrl.replace(/"/g, '')}" alt="imagem da empresa" class="desconto-img">
+            <div class="descricao">
+                <p>${descricao.replace(/"/g, '')}</p>
+                <a href="${linkUrl.replace(/"/g, '')}">
+                    <button class="desc-btn">Saiba Mais</button>
+                </a>
+            </div>
+        </div>
+    `;
+
+    column.innerHTML += itemHtml;
+}
+
+    </script>
 </body>
 
 </html>
