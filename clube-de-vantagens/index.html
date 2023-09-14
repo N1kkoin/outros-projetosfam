@@ -153,11 +153,8 @@
         }
 
         .griditemdescontos {
-            border-radius: 5px;
-
+            border-radius: 10px;
         }
-
-
 
         .griditemdescontos:nth-child(2) h2 {
             background-color: var(--clubecor);
@@ -173,7 +170,18 @@
             background-color: #f9e20f;
             border-radius: 5px 5px 0 0;
         }
+ 
+        .desconto-col:nth-child(1){
+            border: 1px solid #5d378d;
+        }
 
+        .desconto-col:nth-child(2){
+            border: 1px solid var(--clubecor);
+        }
+
+        .desconto-col:nth-child(3){
+            border: 1px solid #f9e20f;
+        }
 
         .griditemdescontos h2 {
             margin-top: 0;
@@ -181,6 +189,8 @@
             font-size: 50px;
             text-align: center;
             color: white;
+            margin: 10px;
+
 
         }
 
@@ -197,7 +207,6 @@
             font-size: 16px;
             background-color: #f2f3f8;
             border-radius: 0 0 10px 10px;
-            margin-bottom: 20px;
         }
 
         .descricao a {
@@ -330,6 +339,9 @@
         <div class=" limite fimclube"></div>
 
     </main>
+    <header class="limite containerlogo">
+        <img src="logocdvantagens.png">
+    </header>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const googleSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRfEwrOn4LplY12o8ybuJRJ22dgw-phIEvM8ZNzb8KIpUOwfvx_aJEgqyS8GxLhb31DkJZq5b53badH/pub?output=csv';
