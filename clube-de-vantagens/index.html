@@ -153,6 +153,7 @@
 
         .griditemdescontos {
             border-radius: 5px;
+
         }
 
 
@@ -233,7 +234,6 @@
             margin-bottom: 20px;
 
         }
-        
     </style>
 </head>
 
@@ -287,7 +287,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section>
             <div class="clubedescontos">
                 <div class="descontos">
@@ -309,59 +309,59 @@
                             <h2>10%</h2>
                         </div>
                     </div>
-                    
 
-                    </div>
+
                 </div>
+            </div>
             </div>
         </section>
         <div class=" limite fimclube"></div>
 
     </main>
     <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const googleSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRfEwrOn4LplY12o8ybuJRJ22dgw-phIEvM8ZNzb8KIpUOwfvx_aJEgqyS8GxLhb31DkJZq5b53badH/pub?output=csv';
+        document.addEventListener('DOMContentLoaded', function () {
+            const googleSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRfEwrOn4LplY12o8ybuJRJ22dgw-phIEvM8ZNzb8KIpUOwfvx_aJEgqyS8GxLhb31DkJZq5b53badH/pub?output=csv';
 
-    fetch(googleSheetURL)
-        .then(response => response.text())
-        .then(data => {
-            let rows = data.split('\n').slice(1);
-            rows.forEach(row => {
-                let columns = row.split(',');
+            fetch(googleSheetURL)
+                .then(response => response.text())
+                .then(data => {
+                    let rows = data.split('\n').slice(1);
+                    rows.forEach(row => {
+                        let columns = row.split(',');
 
-                // Adicionar itens nas respectivas colunas
-                addItemToColumn('desconto-40', columns[0], columns[1], columns[2]);
-                addItemToColumn('desconto-20', columns[3], columns[4], columns[5]);
-                addItemToColumn('desconto-10', columns[6], columns[7], columns[8]);
-            });
-
-            // Adicionar evento de clique nas imagens APÓS inseri-las na página
-            let imagens = document.querySelectorAll('.desconto-img');
-            imagens.forEach(img => {
-                img.addEventListener('click', function () {
-                    // Remove descrições e deslocamentos anteriores
-                    let todasImagens = document.querySelectorAll('.desconto-img');
-                    todasImagens.forEach(i => {
-                        let desc = i.nextElementSibling;
-                        desc.style.display = 'none';
-                        i.classList.remove('deslocamento');
+                        // Adicionar itens nas respectivas colunas
+                        addItemToColumn('desconto-40', columns[0], columns[1], columns[2]);
+                        addItemToColumn('desconto-20', columns[3], columns[4], columns[5]);
+                        addItemToColumn('desconto-10', columns[6], columns[7], columns[8]);
                     });
 
-                    // Mostra a descrição e desloca a imagem
-                    let descricao = this.nextElementSibling;
-                    descricao.style.display = 'block';
-                    this.classList.add('deslocamento');
+                    // Adicionar evento de clique nas imagens APÓS inseri-las na página
+                    let imagens = document.querySelectorAll('.desconto-img');
+                    imagens.forEach(img => {
+                        img.addEventListener('click', function () {
+                            // Remove descrições e deslocamentos anteriores
+                            let todasImagens = document.querySelectorAll('.desconto-img');
+                            todasImagens.forEach(i => {
+                                let desc = i.nextElementSibling;
+                                desc.style.display = 'none';
+                                i.classList.remove('deslocamento');
+                            });
+
+                            // Mostra a descrição e desloca a imagem
+                            let descricao = this.nextElementSibling;
+                            descricao.style.display = 'block';
+                            this.classList.add('deslocamento');
+                        });
+                    });
                 });
-            });
         });
-});
 
-function addItemToColumn(columnId, imageUrl, descricao, linkUrl) {
-    const column = document.getElementById(columnId);
+        function addItemToColumn(columnId, imageUrl, descricao, linkUrl) {
+            const column = document.getElementById(columnId);
 
-    if(!imageUrl.trim()) return; 
+            if (!imageUrl.trim()) return;
 
-    const itemHtml = `
+            const itemHtml = `
         <div class="griditemdescontos">
             <img src="${imageUrl.replace(/"/g, '')}" alt="imagem da empresa" class="desconto-img">
             <div class="descricao">
@@ -373,8 +373,8 @@ function addItemToColumn(columnId, imageUrl, descricao, linkUrl) {
         </div>
     `;
 
-    column.innerHTML += itemHtml;
-}
+            column.innerHTML += itemHtml;
+        }
 
     </script>
 </body>
