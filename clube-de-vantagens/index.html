@@ -14,10 +14,10 @@
         }
 
         body {
-            background-color: var(--clubecor);
             margin: 0;
             padding: 0;
             font-family: 'Source Sans 3', sans-serif;
+            background: linear-gradient(0deg, #5d378d 0%, #5d378d 500px, var(--clubecor) 500px, var(--clubecor) 100%);
 
         }
 
@@ -109,10 +109,6 @@
             text-transform: uppercase;
         }
 
-        .textodescontos p {
-            margin-top: -25px;
-        }
-
         .textodescontos {
             text-align: center;
             padding-top: 15px;
@@ -158,57 +154,48 @@
 
         .griditemdescontos:nth-child(2) h2 {
             background-color: var(--clubecor);
-            border-radius: 5px 5px 0 0;
+            border-radius: 5px;
         }
 
         .griditemdescontos:nth-child(1) h2 {
             background-color: #5d378d;
-            border-radius: 5px 5px 0 0;
+            border-radius: 5px;
         }
 
         .griditemdescontos:nth-child(3) h2 {
             background-color: #f9e20f;
-            border-radius: 5px 5px 0 0;
+            border-radius: 5px;
         }
  
-        .desconto-col:nth-child(1){
-            border: 1px solid #5d378d;
+        .desconto-col{
+            background-color: #f2f3f8;
+            padding: 10px;
+            padding-bottom: 0;
         }
-
-        .desconto-col:nth-child(2){
-            border: 1px solid var(--clubecor);
-        }
-
-        .desconto-col:nth-child(3){
-            border: 1px solid #f9e20f;
-        }
-
         .griditemdescontos h2 {
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 50px;
             text-align: center;
             color: white;
-            margin: 10px;
-
-
         }
 
         .griditemdescontos img {
             width: 100%;
             height: 150px;
             object-fit: cover;
+            border-radius: 5px 5px 0 0;
         }
 
         .descricao {
-            display: none;
+            display: block;
             text-align: center;
             padding: 10px;
             font-size: 16px;
-            background-color: #f2f3f8;
+            background-color: white;
             border-radius: 0 0 5px 5px;
-            margin: 10px;
-            margin-top: 0;
+            margin-top: -5px;
+            margin-bottom: 20px;
         }
 
         .descricao a {
@@ -216,8 +203,7 @@
         }
 
         .descricao p {
-            text-indent: 20px;
-            text-align: left;
+            text-align: center;
         }
 
         .deslocamento {
@@ -318,7 +304,6 @@
 
                     <div class="textodescontos">
                         <h1>descontos</h1>
-                        <p>Clique nas empresas para mais informações</p>
                     </div>
 
                     <div class="gridcontainerdescontos">
@@ -361,24 +346,6 @@
                         addItemToColumn('desconto-10', columns[6], columns[7], columns[8]);
                     });
 
-                    // Adicionar evento de clique nas imagens APÓS inseri-las na página
-                    let imagens = document.querySelectorAll('.desconto-img');
-                    imagens.forEach(img => {
-                        img.addEventListener('click', function () {
-                            // Remove descrições e deslocamentos anteriores
-                            let todasImagens = document.querySelectorAll('.desconto-img');
-                            todasImagens.forEach(i => {
-                                let desc = i.nextElementSibling;
-                                desc.style.display = 'none';
-                                i.classList.remove('deslocamento');
-                            });
-
-                            // Mostra a descrição e desloca a imagem
-                            let descricao = this.nextElementSibling;
-                            descricao.style.display = 'block';
-                            this.classList.add('deslocamento');
-                        });
-                    });
                 });
         });
 
