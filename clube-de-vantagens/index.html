@@ -17,8 +17,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Source Sans 3', sans-serif;
-            background: linear-gradient(0deg, #5d378d 0%, #5d378d 500px, var(--clubecor) 500px, var(--clubecor) 100%);
-
+            background: linear-gradient(0deg, #5d378d 0%, #5d378d 40%, var(--clubecor) 40%, var(--clubecor) 100%);
         }
 
         .limite {
@@ -33,14 +32,15 @@
             background-image: url('fundo.png');
             background-repeat: repeat;
             border-radius: 0;
-
         }
 
         .containerlogo {
-            width: 100%;
+            max-width: 500px;
+            height: 200px;
             display: flex;
             align-items: flex-end;
             margin-bottom: 10px;
+            padding: 0 50px;
         }
 
         .containerlogo img {
@@ -166,12 +166,13 @@
             background-color: #f9e20f;
             border-radius: 5px;
         }
- 
-        .desconto-col{
+
+        .desconto-col {
             background-color: #f2f3f8;
             padding: 10px;
             padding-bottom: 0;
         }
+
         .griditemdescontos h2 {
             margin-top: 0;
             margin-bottom: 10px;
@@ -243,92 +244,186 @@
             margin-bottom: 20px;
 
         }
+
+        .sobre {
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 40px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .grid-containerativa {
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        .grid-containerativa .grid-item {
+            display: flex;
+            flex-direction: row-reverse;
+            margin: 0;
+        }
+
+        .grid-containerativa .grid-item:nth-child(odd) {
+            flex-direction: row;
+            border-bottom: 1px solid #f2f3f8;
+
+        }
+
+        .grid-containerativa .grid-item:nth-child(even) {
+            text-align: right;
+            border-bottom: 1px solid #f2f3f8;
+
+        }
+        .grid-containerativa .grid-item:nth-child(even) img{
+            margin-left: 20px;
+            margin-right: 0;
+        }
+
     </style>
 </head>
 
 <body>
-    <header class="limite containerlogo">
-        <img src="logocdvantagens.png">
-    </header>
-    <main>
-        <section>
-            <div class="motivosfam">
-                <div class="grid-container limite">
-                    <div class="grid-item">
-                        <img src="noun-text-2132279.png" alt="Ícone 1" class="icon">
-                        <div class="contentdogrid">
-                            <h3>Proin tempus sodales tellus vel bibendum.</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Maecenas blandit sem non felis
-                                malesuada
-                                pellentesque. </p>
-                        </div>
+    <div class="limite containerlogo">
+        <img src="clubedevantagens.svg">
+    </div>
+    <section>
+        <p class=" sobre limite">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra efficitur nibh,
+            quis sagittis enim
+            euismod at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi in
+            est sed purus pulvinar malesuada eget at quam. Nam vestibulum efficitur turpis hendrerit dignissim. </p>
+        <div class="motivosfam">
+            <div class="grid-container limite">
+                <div class="grid-item">
+                    <img src="desconto.svg" alt="Ícone 1" class="icon">
+                    <div class="contentdogrid">
+                        <h3>Benefícios</h3>
+                        <p>Ser aluno FAM tem sua vantagens, Confira os descontos de serviços e produtos de empresas
+                            parceiras :)
+                        </p>
                     </div>
+                </div>
 
-                    <div class="grid-item">
-                        <img src="noun-text-2132279.png" alt="Ícone 2" class="icon">
-                        <div class="contentdogrid">
-                            <h3>Título 2</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit sem non felis
-                                malesuada
-                                pellentesque. </p>
-                        </div>
+                <div class="grid-item">
+                    <img src="joinha.svg" alt="Ícone 2" class="icon">
+                    <div class="contentdogrid">
+                        <h3>Título 2</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit sem non felis
+                            malesuada
+                            pellentesque. </p>
                     </div>
+                </div>
 
-                    <div class="grid-item">
-                        <img src="noun-text-2132279.png" alt="Ícone 3" class="icon">
-                        <div class="contentdogrid">
-                            <h3>Título 3</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit sem non felis
-                                malesuada
-                                pellentesque. </p>
-                        </div>
+                <div class="grid-item">
+                    <img src="noun-text-2132279.png" alt="Ícone 3" class="icon">
+                    <div class="contentdogrid">
+                        <h3>Título 3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit sem non felis
+                            malesuada
+                            pellentesque. </p>
                     </div>
+                </div>
 
-                    <div class="grid-item">
-                        <img src="noun-text-2132279.png" alt="Ícone 4" class="icon">
-                        <div class="contentdogrid">
-                            <h3>Título 4</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit sem non felis
-                                malesuada
-                                pellentesque. </p>
-                        </div>
+                <div class="grid-item">
+                    <img src="noun-text-2132279.png" alt="Ícone 4" class="icon">
+                    <div class="contentdogrid">
+                        <h3>Título 4</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit sem non felis
+                            malesuada
+                            pellentesque. </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section>
-            <div class="clubedescontos">
-                <div class="descontos">
-                    <div class="linha"></div>
+    <section>
+        <div class="clubedescontos">
+            <div class="descontos">
+                <div class="linha"></div>
 
-                    <div class="textodescontos">
-                        <h1>descontos</h1>
+                <div class="textodescontos">
+                    <h1>descontos</h1>
+                </div>
+
+                <div class="gridcontainerdescontos">
+                    <div class="griditemdescontos desconto-col" id="desconto-40">
+                        <h2>40%</h2>
                     </div>
-
-                    <div class="gridcontainerdescontos">
-                        <div class="griditemdescontos desconto-col" id="desconto-40">
-                            <h2>40%</h2>
-                        </div>
-                        <div class="griditemdescontos desconto-col" id="desconto-20">
-                            <h2>20%</h2>
-                        </div>
-                        <div class="griditemdescontos desconto-col" id="desconto-10">
-                            <h2>10%</h2>
-                        </div>
+                    <div class="griditemdescontos desconto-col" id="desconto-20">
+                        <h2>20%</h2>
                     </div>
+                    <div class="griditemdescontos desconto-col" id="desconto-10">
+                        <h2>10%</h2>
+                    </div>
+                </div>
 
 
+            </div>
+        </div>
+        </div>
+    </section>
+    <div class=" limite fimclube"></div>
+
+    <div class="limite containerlogo">
+        <img src="ativafam.svg">
+    </div>
+    <section>
+        <p class=" sobre limite">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra efficitur nibh,
+            quis sagittis enim
+            euismod at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi in
+            est sed purus pulvinar malesuada eget at quam. Nam vestibulum efficitur turpis hendrerit dignissim. </p>
+        <div class="motivosativa">
+            <div class="grid-containerativa limite">
+                <div class="grid-item">
+                    <img src="1.svg" alt="Ícone 1" class="icon">
+                    <div class="contentdogrid">
+                        <h3>Benefícios</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Maecenas blandit sem non felis
+                            malesuada
+                            pellentesque. </p>
+                    </div>
+                </div>
+
+                <div class="grid-item">
+                    <img src="2.svg" alt="Ícone 2" class="icon">
+                    <div class="contentdogrid">
+                        <h3>Título 2</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit sem non felis
+                            malesuada
+                            pellentesque. </p>
+                    </div>
+                </div>
+
+                <div class="grid-item">
+                    <img src="3.svg" alt="Ícone 3" class="icon">
+                    <div class="contentdogrid">
+                        <h3>Título 3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit sem non felis
+                            malesuada
+                            pellentesque. </p>
+                    </div>
+                </div>
+
+                <div class="grid-item">
+                    <img src="4.svg" alt="Ícone 4" class="icon">
+                    <div class="contentdogrid">
+                        <h3>Título 4</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit sem non felis
+                            malesuada
+                            pellentesque. </p>
+                    </div>
                 </div>
             </div>
-            </div>
-        </section>
-        <div class=" limite fimclube"></div>
+        </div>
+    </section>
 
-    </main>
-    <header class="limite containerlogo">
-        <img src="logocdvantagens.png">
-    </header>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const googleSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRfEwrOn4LplY12o8ybuJRJ22dgw-phIEvM8ZNzb8KIpUOwfvx_aJEgqyS8GxLhb31DkJZq5b53badH/pub?output=csv';
